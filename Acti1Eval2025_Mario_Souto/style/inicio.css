@@ -1,0 +1,45 @@
+/* Fuente general y reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f2f2f2;
+    color: #333;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Título principal */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+/* Subtítulo */
+p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* Enlaces estilo botón */
+a {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 25px;
+    text-decoration: none;
+    color: white;
+    background-color: #0077cc;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+a:hover {
+    background-color: #005fa3;
+    transform: scale(1.05);
+}
