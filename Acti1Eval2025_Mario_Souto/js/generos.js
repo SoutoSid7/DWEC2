@@ -1,20 +1,11 @@
-class Genero {
-        constructor(id, nombre){
-            this.id = id;
-            this.nombre = nombre;
-        }
-}
+import { Genero, Listado } from "./cmdb.js"
 
 let generos = [];
-let peliculas = [];
+document.addEventListener("DOMContentLoaded", () => {
+    generos = Listado.cargarGeneros(); // Lee localStorage
+    mostrarTabla();
+})
 
-function obtenerId(){
-    if (generos.length === 0 ) {
-        return 1;
-    }
-    return generos[generos.length - 1].id + 1;
-}
-
-function tabla(){
-    const tabla = document.getElementById()
+function mostrarTabla(){
+    
 }
