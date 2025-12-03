@@ -10,3 +10,4 @@ typeof "abc" // string(primitivo)
 typeof String("abc") // string
 typeof new String("abc") // object
 typeof (new String("abc")).valueOf() // string
+
