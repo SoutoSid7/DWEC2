@@ -11,7 +11,7 @@ function mostrarListado() {
     const zona = document.getElementById("tablaListado")
     zona.innerHTML = ""
 
-    peliculas.forEach(g => {
+    peliculas.forEach(p => {
         const fila = document.createElement("tr")
 
         const Titulo = document.createElement("td")
@@ -32,17 +32,24 @@ function mostrarListado() {
         const Generos = document.createElement("td")
         Generos.textContent= p.generos.join(", ")
 
+        const tdBoton = document.createElement("td")
+        const btnVotar = document.createElement("button")
+        btnVotar.textContent = "Votar"
+
+        btnVotar.addEventListener("click", () => votarPelicula(p))
+
+        tdBoton.appendChild(btnVotar)
+
+        fila.appendChild(Titulo)
+        fila.appendChild(Fecha)
+        fila.appendChild(Popularidad)
+        fila.appendChild(Puntuacion)
+        fila.appendChild(numVotos)
+        fila.appendChild(Generos)
+        fila.appendChild(tdBoton)
+
         zona.appendChild(fila)
     })
-
-    const tdBoton = document.createElement("td")
-    const btnVotar = document.createElement("button")
-    btnVotar.textContent = "Votar"
-
-    btnVotar.addEventListener("click", () => votarPelicula(p))
-
-    tdBoton.appendChild(btnVotar)
-    fila.appendChild(tdBoton)
 }
 
 function votarPelicula(p) {
@@ -57,5 +64,4 @@ function votarPelicula(p) {
 
     Listado.guardarPeliculas(peliculas)
     mostrarListado()
-
 }

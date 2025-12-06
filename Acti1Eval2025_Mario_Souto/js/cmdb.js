@@ -63,3 +63,4 @@ export class CMDB {
         localStorage.setItem("cmdb_peliculas", JSON.stringify(lista))
     }
 }
+
