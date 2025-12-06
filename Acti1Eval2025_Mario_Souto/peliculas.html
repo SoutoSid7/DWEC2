@@ -6,6 +6,47 @@
     <title>Peliculas</title>
 </head>
 <body>
-    
+    <h1>Peliculas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Fecha</th>
+                <th>Popularidad</th>
+                <th>Puntuacion</th>
+                <th>Nº Votos</th>
+                <th>Generos</th>
+            </tr>
+        </thead>
+        <tbody id="tablaPeliculas">
+
+        </tbody>
+    </table>
+    <form>
+        <label for="textId">ID</label>
+        <input type="text" id="textId" readonly>
+        <br><br>
+        <label for="titulo">Titulo</label>
+        <input type="text" id="titulo">
+        <br><br>
+        <label for="fechaEstreno">Fecha de Estreno</label>
+        <input type="date" id="fechaEstreno">
+        <br><br>
+        <label for="popularidad">Popularidad</label>
+        <input type="number" id="popularidad">
+        <br><br>
+        <label for="generos">Generos</label>
+        <div id="znGeneros">
+
+        </div>
+
+        <br><br>
+        <button type="button" id="btnAlta">Dar Alta</button>
+        <button type="button" id="btnBaja">Dar Baja</button>
+        <button type="button" id="btnMod">Modificar</button>
+    </form>
+
+    <script src="../Acti1Eval2025_Mario_Souto/js/peliculas.js"></script>
 </body>
 </html>
