@@ -12,11 +12,50 @@ function mostrarListado() {
     zona.innerHTML = ""
 
     peliculas.forEach(g => {
-        const titulo = document.createElement("titulo")
-        const fecha = document.createElement("fecha")
-        const popularidad = document.createElement("popularidad")
-        const puntuacion = document.createElement("puntuacion")
-        const numVotos = document.createElement("numVotos")
-        const generos = document.createElement("generos")
+        const fila = document.createElement("tr")
+
+        const Titulo = document.createElement("td")
+        Titulo.textContent= p.titulo
+
+        const Fecha = document.createElement("td")
+        Fecha.textContent= p.fechaEstreno
+
+        const Popularidad = document.createElement("td")
+        Popularidad.textContent= p.popularidad
+
+        const Puntuacion = document.createElement("td")
+        Puntuacion.textContent= p.puntuacion ?? 0
+
+        const numVotos = document.createElement("td")
+        numVotos.textContent= p.numVotos ?? 0
+
+        const Generos = document.createElement("td")
+        Generos.textContent= p.generos.join(", ")
+
+        zona.appendChild(fila)
     })
+
+    const tdBoton = document.createElement("td")
+    const btnVotar = document.createElement("button")
+    btnVotar.textContent = "Votar"
+
+    btnVotar.addEventListener("click", () => votarPelicula(p))
+
+    tdBoton.appendChild(btnVotar)
+    fila.appendChild(tdBoton)
+}
+
+function votarPelicula(p) {
+    let voto = parseInt(prompt("Introduce un voto entre 0 y 10"))
+
+    if(voto > 10 || voto < 0) {
+        alert("Voto invalido")
+        return
+    }
+
+    p.votar(voto)
+
+    Listado.guardarPeliculas(peliculas)
+    mostrarListado()
+
 }
