@@ -17,12 +17,10 @@ export class Pelicula {
 
     get puntuacion() {
         if(this.puntuaciones.length === 0) return 0
-        return Math.round(
-            this.puntuaciones.reduce((a,b)=>a+b,0) / this.puntuaciones.length
-            // Suma todos los valores de this.puntuaciones
-            // Divide entre la cantidad de elementos
-            // Redondea al entero + cercano
-        )
+        return this.puntuaciones.reduce((a,b)=>a+b,0) / this.puntuaciones.length
+        // Suma todos los valores de this.puntuaciones
+        // Divide entre la cantidad de elementos
+        
     }
 
     get numVotos() {
@@ -55,7 +53,7 @@ export class CMDB {
                 p.popularidad,
                 p.generos
             )
-            peli.puntuaciones = p.puntuaciones || []
+            peli.puntuaciones = p.puntuaciones || []
             return peli
         })
     }

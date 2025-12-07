@@ -1,4 +1,4 @@
-import { Genero, Pelicula, CMDB } from "../js/cmdb.js"
+import { Genero, Pelicula, CMDB } from "./cmdb.js"
 
 if(!localStorage.getItem("cmdb_generos")){
     CMDB.guardarGeneros([
