@@ -6,7 +6,7 @@ if(!localStorage.getItem("cmdb_generos")){
         new Genero(2, "Drama")
     ])
 }
-if(!localStorage.getItem("cmdb_generos")){
+if(!localStorage.getItem("cmdb_peliculas")){
     CMDB.guardarPeliculas([
         new Pelicula(1, "Matrix", "1999-03-31", 90, [1]),
         new Pelicula(2, "Shrek", "2001-05-18", 88, [2]),

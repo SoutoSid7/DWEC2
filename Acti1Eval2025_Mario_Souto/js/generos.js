@@ -82,7 +82,7 @@ function bajaGenero() {
     }
 
     generos = generos.filter(g => g.id !== id)
-    Listado.guardarGeneros(generos)
+    CMDB.guardarGeneros(generos)
     mostrarTabla()
     limpiarFormulario()
 }
@@ -102,7 +102,7 @@ function modificarGenero() {
 
     genero.nombre = nombre
 
-    Listado.guardarGeneros(generos)
+    CMDB.guardarGeneros(generos)
     mostrarTabla()
     limpiarFormulario()
 }
