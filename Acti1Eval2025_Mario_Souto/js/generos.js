@@ -1,4 +1,4 @@
-import { Genero, Listado } from "./cmdb.js"
+import { Genero, CMDB } from "./cmdb.js"
 
 let generos = [];
 let filaSeleccionada = null
