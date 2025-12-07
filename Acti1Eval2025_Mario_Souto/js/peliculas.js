@@ -128,7 +128,7 @@ function altaPelicula() {
                         )
 
     peliculas.push(nuevaPelicula)
-    Listado.guardarPeliculas(peliculas)
+    CMDB.guardarPeliculas(peliculas)
     mostrarTbPelicula()
     limpiarFormulario()
 }
@@ -161,7 +161,7 @@ function modificarPelicula(){
     pelicula.generos = generosSeleccionados;
 
 
-    Listado.guardarPeliculas(peliculas)
+    CMDB.guardarPeliculas(peliculas)
     mostrarTbPelicula()
     limpiarFormulario()
 }
@@ -176,7 +176,7 @@ function bajaPelicula(){
 
     peliculas = peliculas.filter(g => g.id !== id)
 
-    Listado.guardarPeliculas(peliculas)
+    CMDB.guardarPeliculas(peliculas)
     mostrarTbPelicula()
     limpiarFormulario()
 }
