@@ -1,9 +1,9 @@
-import { Listado, Pelicula } from "./cmdb.js"
+import { CMDB, Pelicula } from "./cmdb.js"
 
 let peliculas = []
 
 document.addEventListener("DOMContentLoaded", () => {
-    peliculas = Listado.cargarPeliculas()
+    peliculas = CMDB.cargarPeliculas()
     mostrarListado()
 })
 
@@ -62,6 +62,6 @@ function votarPelicula(p) {
 
     p.votar(voto)
 
-    Listado.guardarPeliculas(peliculas)
+    CMDB.guardarPeliculas(peliculas)
     mostrarListado()
 }

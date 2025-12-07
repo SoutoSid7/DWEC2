@@ -1,15 +1,15 @@
-import { Listado, Pelicula } from "./cmdb.js"
+import { CMDB, Pelicula } from "./cmdb.js"
 
 let generos = []
 let peliculas = []
 
 document.addEventListener("DOMContentLoaded", () => {
     // Cargar Generos
-    generos = Listado.cargarGeneros()
+    generos = CMDB.cargarGeneros()
     mostrarGenerosForm()
 
     // Cargar Peliculas
-    peliculas = Listado.cargarPeliculas()
+    peliculas = CMDB.cargarPeliculas()
     mostrarTbPelicula()
 
     document.getElementById("btnAlta").addEventListener("click", altaPelicula)

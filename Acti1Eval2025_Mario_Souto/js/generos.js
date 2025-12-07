@@ -73,6 +73,14 @@ function bajaGenero() {
         return
     }
 
+    const peliculas = CMDB.cargarPeliculas()
+    const usada = peliculas.some(p => p.generos.includes(id))
+
+    if(usada){
+        alert("No se puede borrar un genero que se esta utilizando")
+        return
+    }
+
     generos = generos.filter(g => g.id !== id)
     Listado.guardarGeneros(generos)
     mostrarTabla()
