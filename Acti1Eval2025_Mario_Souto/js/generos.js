@@ -3,7 +3,7 @@ import { Genero, CMDB } from "./cmdb.js"
 let generos = [];
 let filaSeleccionada = null
 document.addEventListener("DOMContentLoaded", () => {
-    generos = Listado.cargarGeneros(); // Lee localStorage
+    generos = CMDB.cargarGeneros(); // Lee localStorage
     mostrarTabla();
 
     document.getElementById("btnAlta").addEventListener("click", altaGenero)
@@ -60,7 +60,7 @@ function altaGenero() {
     const nuevoGenero = new Genero(conseguirID(), nombre)
 
     generos.push(nuevoGenero)
-    Listado.guardarGeneros(generos)
+    CMDB.guardarGeneros(generos)
     mostrarTabla()
     limpiarFormulario()
 }

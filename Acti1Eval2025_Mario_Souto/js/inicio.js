@@ -3,7 +3,7 @@ import { Genero, Pelicula, CMDB } from "../js/cmdb.js"
 if(!localStorage.getItem("cmdb_generos")){
     CMDB.guardarGeneros([
         new Genero(1, "Accion"),
-        new Genero(1, "Drama")
+        new Genero(2, "Drama")
     ])
 }
 if(!localStorage.getItem("cmdb_generos")){
