@@ -17,6 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btnBaja").addEventListener("click", bajaPelicula);
 })
 
+function obetenerNombres(ids){
+    return ids
+        .map(id => {
+            const genero = generos.find(g => g.id === id)
+            return genero ? genero.nombre : "desconocido"
+        })
+        .join(", ")
+}
+
 function mostrarGenerosForm() {
     const zona = document.getElementById("znGeneros")
     zona.innerHTML = ""
@@ -50,7 +59,7 @@ function mostrarTbPelicula() {
             <td>${p.popularidad}</td>
             <td>${p.puntuacion ?? 0}</td>
             <td>${p.numVotos ?? 0}</td>
-            <td>${p.generos.join(", ")}</td>
+            <td>${obetenerNombres(p.generos)}</td>
 
         `
 

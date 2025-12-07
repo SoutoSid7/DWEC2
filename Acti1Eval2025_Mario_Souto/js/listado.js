@@ -7,6 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     mostrarListado()
 })
 
+function obetenerNombres(ids){
+    return ids
+        .map(id => {
+            const genero = generos.find(g => g.id === id)
+        })
+        .join(", ")
+}
+
 function mostrarListado() {
     const zona = document.getElementById("tablaListado")
     zona.innerHTML = ""
@@ -30,7 +38,7 @@ function mostrarListado() {
         numVotos.textContent= p.numVotos ?? 0
 
         const Generos = document.createElement("td")
-        Generos.textContent= p.generos.join(", ")
+        Generos.textContent= obetenerNombres(p.generos)
 
         const tdBoton = document.createElement("td")
         const btnVotar = document.createElement("button")

@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f3f3;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+thead {
+    background: #4a90e2;
+    color: white;
+}
+
+thead th {
+    padding: 12px;
+    font-size: 16px;
+}
+
+tbody td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+}
+
+tbody tr:hover {
+    background: #e9f2ff;
+    cursor: pointer;
+}
+
+form {
+    width: 60%;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+#btnAlta {
+    background: #2ecc71;
+    color: white;
+}
+#btnAlta:hover {
+    background: #27ae60;
+}
+
+#btnBaja {
+    background: #e74c3c;
+    color: white;
+}
+#btnBaja:hover {
+    background: #c0392b;
+}
+
+#btnMod {
+    background: #f1c40f;
+    color: white;
+}
+#btnMod:hover {
+    background: #d4ac0d;
+}

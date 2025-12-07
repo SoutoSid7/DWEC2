@@ -1,0 +1,59 @@
+/* ======== ESTILOS GENERALES ======== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 90%;
+    max-width: 1000px;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 12px rgba(0,0,0,0.12);
+}
+
+/* ======== CABECERA ======== */
+thead {
+    background: #4a90e2;
+    color: white;
+}
+
+thead th {
+    padding: 14px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* ======== CUERPO ======== */
+tbody td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+}
+
+tbody tr:hover {
+    background: #eef4ff;
+}
+
+/* ======== BOTÓN VOTAR ======== */
+button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    background: #27ae60;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s ease-in-out;
+}
+
+button:hover {
+    background: #1e8449;
+}
