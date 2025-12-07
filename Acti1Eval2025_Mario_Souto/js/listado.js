@@ -1,8 +1,10 @@
 import { CMDB, Pelicula } from "./cmdb.js"
 
 let peliculas = []
+let generos = []
 
 document.addEventListener("DOMContentLoaded", () => {
+    generos = CMDB.cargarGeneros()
     peliculas = CMDB.cargarPeliculas()
     mostrarListado()
 })
@@ -11,6 +13,7 @@ function obetenerNombres(ids){
     return ids
         .map(id => {
             const genero = generos.find(g => g.id === id)
+            return genero ? genero.nombre : "Desconocido"
         })
         .join(", ")
 }
