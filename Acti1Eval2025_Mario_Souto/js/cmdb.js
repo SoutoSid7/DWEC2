@@ -14,7 +14,6 @@ export class Pelicula {
         this.puntuaciones = []
         this.generos = generos
     }
-
     get puntuacion() {
         if(this.puntuaciones.length === 0) return 0
         return this.puntuaciones.reduce((a,b)=>a+b,0) / this.puntuaciones.length
