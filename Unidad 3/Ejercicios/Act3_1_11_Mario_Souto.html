@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num1 = 23
+        let num2 = 2
+        let operador = "/"
+
+        function calculo(){
+            switch (operador) {
+                case "+":
+                    let suma = num1 + num2
+                    document.write(suma)
+                    break
+                case "-":
+                    let resta = num1 - num2
+                    document.write(resta)
+                    break
+                case "*": 
+                    let multi = num1 * num2
+                    document.write(multi)
+                    break
+                case "/":
+                    let div = num1 / num2
+                    document.write(div)
+                    break
+                default:
+                    alert("Operador invalido")
+                    break;
+            }
+        }
+        calculo()
+    </script>
+</body>
+</html>

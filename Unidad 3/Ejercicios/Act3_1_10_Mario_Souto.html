@@ -8,14 +8,12 @@
 <body>
     <script>
         function depurar(){
-            let num = prompt("Introduce un numero")
-
-            if(!isNaN(num)){
-                return num
-            } else {
-                alert("Error, no es un numero")
+            let operador = prompt("Introduce el caracter de operacion (+ - x /)")
+            
+            if(operador !== "+" && operador !== "-" && operador !== "x" && operador !== "/"){
+                alert("No es un caracter de operacion valido")
             }
-        }
+        }   
         depurar()
     </script>
 </body>
