@@ -7,7 +7,17 @@
 </head>
 <body>
     <script>
-        
+        let num
+        num = prompt("Introduzca un numero: ")   
+        num = parseInt(num)
+
+        for(let i = 0; i < num; i++){
+            let linea = ""
+            for(let j = 0; j < num; j++){
+                linea += "*"
+            }
+            document.write(linea + "<br>")
+        }
     </script>
 </body>
 </html>

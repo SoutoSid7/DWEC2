@@ -8,10 +8,16 @@
 <body>
     <script>
         let num, ad;
+        let i = 0
         num = prompt("Introduzca un numero: ")
 
         while(true){
             ad = prompt("Intenta adivinarlo: ");
+            i ++
+            if(i === 5){
+                alert("Has superado el numero de intentos")
+                break
+            }
             if (num == ad){
                 alert("Has adivinado el numero")
                 break;
