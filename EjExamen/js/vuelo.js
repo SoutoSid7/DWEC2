@@ -83,7 +83,7 @@ function añadir() {
     vuelos.push(vuelo)
 
     // Llamadas a funciones
-    actMuyRentables(vuelo)
+    actMuyRentables(vuelo) 
     actualizarTabla()
     limpiar()
 }
@@ -207,18 +207,22 @@ function tablaMuyRentables() {
 
 // -- ACTUALIZAR LISTA DE MUY RENTABLES --
 function actMuyRentables(vuelo) {
+    // Busca si el vuelo ya está en la lista de muy rentables
     const index = vueloMuyRentable.findIndex( v => v.codigo === vuelo.codigo)
     
     if (vuelo.muyRentable){
+        // Si no esta en la lista lo añadimos
         if (index === - 1){
             vueloMuyRentable.push(
                 new VueloMuyRentable(vuelo.codigo, vuelo.ingreso)
             )
         } else {
+            // Si esta modificamos el campo
             vueloMuyRentable[index].ingreso = vuelo.ingreso
         }
-
+    // Vuelo no muy rentable
     } else {
+        // Si esta en la lista se elimina
         if (index !== -1){
             vueloMuyRentable.splice(index, 1)
         }
