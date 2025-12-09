@@ -7,14 +7,6 @@ class Operacion {
         this.oper = oper
         this.cantidad = cantidad
     }
-
-    get aporte() {
-        if(oper === "Aporte"){
-            sumaKg += this.cantidad
-            return this.cantidad
-        }
-        return
-    }
 }
 
 class OperacionSospechosa {
@@ -29,8 +21,8 @@ class OperacionSospechosa {
 const operaciones = []
 const opercaionesSospechosas = []
 
-let sumaKg = 0
-let restaKg = 0
+//let sumaKg = 0
+//let restaKg = 0
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btnAlta").addEventListener("click", alta)
@@ -52,26 +44,15 @@ function alta() {
         return
     }
 
-    const indice = operaciones.findIndex(o => o.idOper === idOper)
-    if(indice === 1 ){
-        alert("El identificador ya existe")
+    if(operaciones.some(o => o.idOper === idOper)){
+        alert("El ID para esta operacion ya existe")
         return
     }
 
-    if(operacion.aporte){
-        alert("Se sumaron los kg")
+    if(cantidad < 1){
+        alert("La cantidad debe ser mayor a 1Kg")
         return
     }
-
-    /*
-    if(oper == "Aporte"){
-        sumaKg += cantidad
-        return
-    }
-
-    if(oper == "Toma" && restaKg == 0){
-        return
-    }*/
 
     const operacion = new Operacion(idOper, nombreS, apellidoS, producto, oper, cantidad)
     operaciones.push(operacion)
@@ -93,17 +74,15 @@ function modificar() {
         return
     }
 
-    /*
-    if(oper == "Aporte"){
-        sumaKg += cantidad
-        return
+    const indice = operaciones.findIndex(o => o.idOper === idOper)
+    if(indice === -1){
+        alert("Debe seleccionar un ID existente")
+        return  
     }
-    */
 
-    operacion.cantidad += sumaKg
-
-    if(oper == "Toma"){
-        this.cantidad -= restaKg
+    if(cantidad < 1){
+        alert("La cantidad debe ser mayor a 1Kg")
+        return
     }
 
     const operacion = operaciones.find(o => o.idOper === idOper)
