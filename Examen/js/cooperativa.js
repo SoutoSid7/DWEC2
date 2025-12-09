@@ -193,4 +193,4 @@ function limpiar() {
     document.getElementById("producto").value = ""
     document.getElementById("oper").value = ""
     document.getElementById("cantidad").value = ""
-}
+}   
