@@ -1,0 +1,101 @@
+/* ----- ESTILO GENERAL ----- */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2f4f7;
+    padding: 20px;
+    margin: 0;
+    color: #333;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #1b4aa5;
+}
+
+/* ----- FORMULARIO ----- */
+#formVuelos {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#formVuelos label {
+    font-weight: bold;
+}
+
+#formVuelos input {
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+}
+
+#formVuelos button {
+    padding: 10px;
+    border: none;
+    background-color: #1b4aa5;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#formVuelos button:hover {
+    background-color: #163c84;
+}
+
+#formVuelos button:active {
+    transform: scale(0.97);
+}
+
+/* ----- TABLAS ----- */
+table {
+    width: 80%;
+    margin: 25px auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+th {
+    background: #1b4aa5;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background: #eef3ff;
+    cursor: pointer;
+}
+
+/* ----- ZONA VUELOS MUY RENTABLES ----- */
+#zonaRentables {
+    margin-top: 40px;
+    padding: 20px;
+    background: #fff4e6;
+    border: 2px solid #ffb74d;
+    border-radius: 8px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+#zonaRentables h2 {
+    color: #d47a00;
+    font-weight: bold;
+}
