@@ -9,7 +9,10 @@ class Operacion {
     }
 
     get aporte() {
-        
+        if(){
+            
+        }
+        return
     }
 
 }
