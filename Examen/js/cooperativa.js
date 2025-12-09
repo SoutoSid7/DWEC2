@@ -7,11 +7,6 @@ class Operacion {
         this.oper = oper
         this.cantidad = cantidad
     }
-
-    get toma() {
-        return this.cantidad 
-    }
-
 }
 
 class OperacionSospechosa {
@@ -24,12 +19,10 @@ const operaciones = []
 const opercaionesSospechosas = []
 
 document.addEventListener("DOMContentLoaded", () => {
-    //cargarLineas() // LocalStorage
-
     document.getElementById("btnAlta").addEventListener("click", alta)
     document.getElementById("btnModificar").addEventListener("click", modificar)
-
-    //actualizarTabla() // "LocalStorage"
+    document.getElementById("btnTabla").addEventListener("click", mostrarTabla)
+    document.getElementById("btnTablaSospe").addEventListener("click", mostrarTablaSospe)
 })
 
 function alta() {
@@ -55,7 +48,6 @@ function alta() {
     operaciones.push(operacion)
 
     sospechosa()
-    actualizarTabla()
     limpiar()
 }
 
@@ -81,12 +73,10 @@ function modificar() {
     operacion.oper = oper
     operacion.cantidad = cantidad
 
-    actualizarTabla()
     sospechosa()
+    mostrarTabla()
     limpiar()
 }
-
-
 
 function sospechosa() {
     const idOper = document.getElementById("idOper").value
@@ -102,9 +92,19 @@ function sospechosa() {
     limpiar()
 }
 
-function actualizarTabla() {
+function mostrarTabla() {
+    const zona = document.getElementById("zonaCooper")
     const tbody = document.querySelector("#tablaCooper tbody")
+
+    if(operaciones.length === 0){
+        zona.style.display = "none"
+        return
+    }
+
+    zona.style.display = "block"
+
     tbody.innerHTML = ""
+
     operaciones.forEach(o => {
         const fila = document.createElement("tr")
         fila.innerHTML += `
@@ -124,6 +124,34 @@ function actualizarTabla() {
             document.getElementById("producto").value = o.producto
             document.getElementById("oper").value = o.oper
             document.getElementById("cantidad").value = o.cantidad
+        })
+        tbody.appendChild(fila)
+    })
+
+}
+
+function mostrarTablaSospe() {
+    const zona = document.getElementById("zonaCooperSospechoso")
+    const tbody = document.querySelector("#tablaCooperSospechoso tbody")
+
+    if(opercaionesSospechosas.length === 0){
+        zona.style.display = "none"
+        alert("No hay ninguna operacion sospechosa")
+        return
+    }
+
+    zona.style.display = "block"
+
+    tbody.innerHTML = ""
+
+    opercaionesSospechosas.forEach(o => {
+        const fila = document.createElement("tr")
+        fila.innerHTML += `
+            <td>${o.idOper}</td>
+        `
+
+        fila.addEventListener("click", () => {
+            document.getElementById("idOper").value = o.idOper
         })
         tbody.appendChild(fila)
     })
