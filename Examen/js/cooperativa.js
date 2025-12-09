@@ -7,23 +7,28 @@ class Operacion {
         this.oper = oper
         this.cantidad = cantidad
     }
+
+    get toma() {
+        return this.cantidad 
+    }
+
 }
 
 class OperacionSospechosa {
-    constructor(idOper, masKg) {
+    constructor(idOper) {
         this.idOper = idOper
-        this.masKg = masKg
     }
 }
 
 const operaciones = []
-const opercaionesSospechosa = []
+const opercaionesSospechosas = []
 
 document.addEventListener("DOMContentLoaded", () => {
     //cargarLineas() // LocalStorage
 
     document.getElementById("btnAlta").addEventListener("click", alta)
-    
+    document.getElementById("btnModificar").addEventListener("click", modificar)
+
     //actualizarTabla() // "LocalStorage"
 })
 
@@ -46,20 +51,54 @@ function alta() {
         return
     }
 
-    if(cantidad < 1){
-        alert("La cantidad de kilos debe ser mayor a 1Kg")
-        return
-    }
-
     const operacion = new Operacion(idOper, nombreS, apellidoS, producto, oper, cantidad)
     operaciones.push(operacion)
 
-    
-    if(cantidad > 100){
-        
+    sospechosa()
+    actualizarTabla()
+    limpiar()
+}
+
+function modificar() {
+    const idOper = document.getElementById("idOper").value
+    const nombreS = document.getElementById("nombreS").value
+    const apellidoS = document.getElementById("apellidoS").value
+    const producto = document.getElementById("producto").value
+    const oper = document.getElementById("oper").value
+    const cantidad = document.getElementById("cantidad").value
+
+    if(!idOper || !nombreS || !apellidoS || !producto || !oper || !cantidad){
+        alert("Debe introducir todos los datos")
+        return
     }
 
+    const operacion = operaciones.find(o => o.idOper === idOper)
+
+    operacion.idOper = idOper
+    operacion.nombreS = nombreS
+    operacion.apellidoS = apellidoS
+    operacion.producto = producto
+    operacion.oper = oper
+    operacion.cantidad = cantidad
+
     actualizarTabla()
+    sospechosa()
+    limpiar()
+}
+
+
+
+function sospechosa() {
+    const idOper = document.getElementById("idOper").value
+    const cantidad = document.getElementById("cantidad").value
+
+    if(cantidad > 100){
+        const operacionSospechosa = new OperacionSospechosa(idOper)
+        opercaionesSospechosas.push(operacionSospechosa)
+        alert("Se añadio a operacioens sospechosas")
+        return
+    }
+
     limpiar()
 }
 
