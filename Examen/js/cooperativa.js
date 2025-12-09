@@ -21,9 +21,6 @@ class OperacionSospechosa {
 const operaciones = []
 const opercaionesSospechosas = []
 
-//let sumaKg = 0
-//let restaKg = 0
-
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btnAlta").addEventListener("click", alta)
     document.getElementById("btnModificar").addEventListener("click", modificar)
