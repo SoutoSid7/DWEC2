@@ -8,7 +8,7 @@ class Parada {
 }
 
 let paradas = [] // deberia const
-let lineas = [] // "LocalStorage"
+let lineasLS = [] // "LocalStorage"
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -36,7 +36,7 @@ function cargarParadas() {
 function cargarLineas() {
     const datos = localStorage.getItem("lineas");
     if (datos) {
-        lineas = JSON.parse(datos);
+        lineasLS = JSON.parse(datos);
     }
 }
 
@@ -68,13 +68,8 @@ function alta() {
 
     // Validación formato intervalo HH:MM
     const regexHHMM = /^[0-9]{2}:[0-9]{2}$/;
-    if (!regexHHMM.test(intervaloLinea)) {
+    if (!regexHHMM.test(intervalSal)) {
         alert("El intervalo debe tener el formato HH:MM");
-        return;
-    }
-
-    if (!lineas.some(l => l.numLinea === numLinea)) {
-        alert("La línea indicada no existe");
         return;
     }
 
@@ -140,7 +135,7 @@ function modificar() {
 
     // Validación formato intervalo HH:MM
     const regexHHMM = /^[0-9]{2}:[0-9]{2}$/;
-    if (!regexHHMM.test(intervaloLinea)) {
+    if (!regexHHMM.test(intervalSal)) {
         alert("El intervalo debe tener el formato HH:MM");
         return;
     }
