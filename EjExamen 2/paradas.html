@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>AVILESA - Gestión de Paradas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../EjExamen 2/css/paradas.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Paradas</h1>
+    </header>
+    <main>
+        <a href="index.html" class="volver">&larr; Volver a la página principal</a>
+        <section>
+            <h2>Alta / Baja / Modificación / Consulta de Paradas</h2>
+            <form id="formParadas">
+                <fieldset>
+                    <legend>Datos de la parada</legend>
+                    <label for="numParada">Número de parada *</label>
+                    <input type="number" id="numParada" min="1" step="1" required>
+
+                    <label for="numLineaParada">Número de línea *</label>
+                    <input type="number" id="numLineaParada" min="1" step="1" required>
+
+                    <label for="localidadParada">Localidad *</label>
+                    <input type="text" id="localidadParada" required>
+
+                    <label for="intervaloParada">Intervalo desde salida (HH:MM) *</label>
+                    <input type="text" id="intervaloParada" placeholder="HH:MM" required>
+                </fieldset>
+
+                <div class="acciones">
+                    <button type="button" id="btnAltaParada" class="alta">Alta</button>
+                    <button type="button" id="btnBajaParada" class="baja">Baja</button>
+                    <button type="button" id="btnModificarParada" class="modificar">Modificar</button>
+                    <button type="button" id="btnConsultarParada" class="consultar">Consultar</button>
+                </div>
+
+            </form>
+            <div class="mensaje" id="mensajeParadas"></div>
+        </section>
+        
+        <section>
+            <h2>Listado de Paradas</h2>
+            <table id="tablaParadas">
+                <thead>
+                    <tr>
+                        <th>Nº Parada</th>
+                        <th>Nº Línea</th>
+                        <th>Localidad</th>
+                        <th>Intervalo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JS inserta filas -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
+

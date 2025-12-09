@@ -1,0 +1,113 @@
+/* ---------- ESTILO GENERAL ---------- */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background-color: #003366;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    padding: 1.5rem;
+}
+
+a.volver {
+    display: inline-block;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+}
+
+/* ---------- FORMULARIO ---------- */
+
+fieldset {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+legend {
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin: 0.5rem 0 0.2rem;
+}
+
+input {
+    padding: 0.4rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* ---------- BOTONES ---------- */
+
+.acciones {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
+
+button {
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Colores para cada acción */
+.alta {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.baja {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.modificar {
+    background-color: #f1c40f;
+    color: black;
+}
+
+.consultar {
+    background-color: #3498db;
+    color: white;
+}
+
+/* ---------- TABLA ---------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 0.4rem;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+/* ---------- MENSAJES ---------- */
+
+.mensaje {
+    margin-top: 1rem;
+    font-weight: bold;
+}
