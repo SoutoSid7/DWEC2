@@ -9,12 +9,12 @@ class Operacion {
     }
 
     get aporte() {
-        if(){
-            
+        if(oper === "Aporte"){
+            sumaKg += this.cantidad
+            return this.cantidad
         }
         return
     }
-
 }
 
 class OperacionSospechosa {
@@ -55,6 +55,11 @@ function alta() {
     const indice = operaciones.findIndex(o => o.idOper === idOper)
     if(indice === 1 ){
         alert("El identificador ya existe")
+        return
+    }
+
+    if(operacion.aporte){
+        alert("Se sumaron los kg")
         return
     }
 
