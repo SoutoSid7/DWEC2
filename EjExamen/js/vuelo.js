@@ -36,7 +36,7 @@ class VueloMuyRentable {
 // VARIABLES
 // ==========
 const vuelos = []
-const muyRentable = []
+const vueloMuyRentable = []
 
 // ========
 // BOTONES
@@ -44,6 +44,7 @@ const muyRentable = []
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btnAñadir").addEventListener("click", añadir)
     document.getElementById("btnModificar").addEventListener("click", modificar)
+    document.getElementById("btnCalcular").addEventListener("click", calcular)
 })
 
 // ==========
@@ -60,8 +61,11 @@ function añadir() {
     // VALIDACIONES
     if(!codigo || !numPlazas || !imporB){
         alert("Debe introducir todos los datos")
+        return
     }
 
+    // Comprueba si existe un vuelo con ese codigo
+    // Para cada vuelo (v) evalua si es === a codigo
     if(vuelos.some(v => v.codigo === codigo)){
         alert("Ese codigo de vuelo ya existe")
         return
@@ -72,11 +76,14 @@ function añadir() {
         return
     }
 
-    // Crear objeto vuelo con esos datos
+    // Crear objeto de la clase vuelo con los datos recogidos 
+    // Se guarda en la constante vuelo 
     const vuelo = new Vuelo(codigo, numPlazas, imporB)
+    // Añade vuelo al array vuelos
     vuelos.push(vuelo)
 
-    actualizarMuyRentables(vuelo)
+    // Llamadas a funciones
+    actMuyRentables(vuelo)
     actualizarTabla()
     limpiar()
 }
@@ -91,6 +98,7 @@ function modificar() {
     // Validaciones
     if(!codigo || !numPlazas || !imporB){
         alert("Debe introducir todos los datos")
+        return
     }
 
     if(numPlazas < 1 || imporB < 1){
@@ -98,10 +106,11 @@ function modificar() {
         return
     }
 
+    // Buscar el vuelo a modificar
     const vuelo = vuelos.find(v => v.codigo === codigo)
 
     if(!vuelo){
-        alert("NO exsite el vuelo con ese codigo")
+        alert("NO existe el vuelo con ese codigo")
         return
     }
 
@@ -117,10 +126,13 @@ function modificar() {
 // -- CALCULAR --
 function calcular() {
     const codigo = document.getElementById("codigo").value
+    const numPlazas = document.getElementById("numPlazas").value
+    const imporB = document.getElementById("imporB").value
 
     // Validaciones
     if(!codigo || !numPlazas || !imporB){
         alert("Debe introducir todos los datos")
+        return
     }
 
     const vuelo = vuelos.find(v => v.codigo === codigo)
@@ -140,25 +152,27 @@ function calcular() {
 
 // -- TABLA PRINCIPAL --
 function actualizarTabla() {
+    // Busca el elemento tbody que esta dentro de resultado
     const tbody = document.querySelector("#resultado tbody")
+    // Vacia la tabla
     tbody.innerHTML = ""
 
+    // Recorre vuelos en cada iteracion (v) representa un vuelo
     vuelos.forEach(v => {
-        const fila = document.createElement("tr")
+        const fila = document.createElement("tr") // Crea una nueva fila de la tabla vacia
+        // Añade celdas con el dato del vuelo
         fila.innerHTML += `
-        <tr>
             <td>${v.codigo}</td>
             <td>${v.numPlazas}</td>
             <td>${v.imporB}</td>
-        </tr>
         `
-
+        // Al hacer click cargar los datos en el formulario
         fila.addEventListener("click", () => {
             document.getElementById("codigo").value = v.codigo
             document.getElementById("numPlazas").value = v.numPlazas
             document.getElementById("imporB").value = v.imporB
         })
-        tbody.appendChild(fila)
+        tbody.appendChild(fila) // Inserta la fila dentro del tbody
     })
 }
 
@@ -184,8 +198,7 @@ function tablaMuyRentables() {
         const fila = document.createElement("tr")
         fila.innerHTML = `
             <td>${v.codigo}</td>
-            <td>${v.numPlazas}</td>
-            <td>${v.imporB}</td>
+            <td>${v.ingreso}</td>
         `
         tbody.appendChild(fila)
     })
