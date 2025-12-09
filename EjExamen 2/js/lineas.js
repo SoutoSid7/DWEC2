@@ -8,13 +8,28 @@ class Linea {
     }
 }
 
-const lineas = []
+let lineas = [] // deberia const 
 
 document.addEventListener("DOMContentLoaded", () => {
+    cargarLineas() // LocalStorage
+
     document.getElementById("btnAlta").addEventListener("click", alta)
     document.getElementById("btnBaja").addEventListener("click", baja)
     document.getElementById("btnModificar").addEventListener("click", modificar)
-    })
+
+    actualizarTabla() // "LocalStorage"
+})
+
+function guardarLineas() {
+    localStorage.setItem("lineas", JSON.stringify(lineas));
+}
+
+function cargarLineas() {
+    const datos = localStorage.getItem("lineas");
+    if (datos) {
+        lineas = JSON.parse(datos);
+    }
+}
 
 function alta() {
     const numLinea = document.getElementById("numLinea").value
@@ -60,6 +75,7 @@ function alta() {
     lineas.push(linea)
 
     actualizarTabla()
+    guardarLineas()
     limpiar()
 }
 
@@ -85,6 +101,7 @@ function baja() {
     alert("Línea eliminada correctamente");
 
     actualizarTabla();
+    guardarLineas()
     limpiar();
 }
 
@@ -131,6 +148,7 @@ function modificar() {
     linea.intervaloLinea = intervaloLinea
 
     actualizarTabla()
+    guardarLineas()
     limpiar()
 }
 

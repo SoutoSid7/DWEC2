@@ -7,13 +7,38 @@ class Parada {
     }
 }
 
-const paradas = []
+let paradas = [] // deberia const
+let lineas = [] // "LocalStorage"
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    cargarLineas()
+    cargarParadas()
+
     document.getElementById("btnAltaParada").addEventListener("click", alta)
     document.getElementById("btnBajaParada").addEventListener("click", baja)
-    //document.getElementById("btnModificarParada").addEventListener("click", modificar)
-    })
+    document.getElementById("btnModificarParada").addEventListener("click", modificar)
+
+    actualizarTabla()
+})
+
+function guardarParadas() {
+    localStorage.setItem("paradas", JSON.stringify(paradas));
+}
+
+function cargarParadas() {
+    const datos = localStorage.getItem("paradas");
+    if (datos) {
+        paradas = JSON.parse(datos);
+    }
+}
+
+function cargarLineas() {
+    const datos = localStorage.getItem("lineas");
+    if (datos) {
+        lineas = JSON.parse(datos);
+    }
+}
 
 function alta() {
     const numParada = document.getElementById("numParada").value
@@ -48,10 +73,16 @@ function alta() {
         return;
     }
 
+    if (!lineas.some(l => l.numLinea === numLinea)) {
+        alert("La línea indicada no existe");
+        return;
+    }
+
     const parada = new Parada(numParada, numLinea, localidad, intervalSal)
     paradas.push(parada)
 
     actualizarTabla()
+    guardarParadas();
     limpiar()
 }
 
@@ -77,6 +108,7 @@ function baja() {
     alert("Línea eliminada correctamente");
 
     actualizarTabla();
+    guardarParadas();
     limpiar();
 }
 

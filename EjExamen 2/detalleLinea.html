@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>AVILESA - Detalle de Línea</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../EjExamen 2/css/detalleLinea.css">
+</head>
+<body>
+    <header>
+        <h1>Detalle de Línea</h1>
+    </header>
+    <main>
+        <a href="index.html" class="volver">&larr; Volver a la página principal</a>
+        <section>
+            <h2>Consulta de detalle</h2>
+            <form id="formDetalleLinea">
+                <label for="numLineaDetalle">Número de línea *</label>
+                <input type="number" id="numLineaDetalle" min="1" step="1" required>
+
+                <button type="submit" id="btnConsultarDetalle" class="consultar">
+                    Consultar
+                </button>
+            </form>
+            <div class="mensaje" id="mensajeDetalle"></div>
+        </section>
+        
+        <section>
+            <h2>Paradas de la línea</h2>
+
+            <table id="tablaDetalle">
+                <thead>
+                <tr>
+                    <th>Nº Parada</th>
+                    <th>Localidad</th>
+                    <th>Intervalo desde salida</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- JS insertará las filas -->
+                </tbody>
+            </table>
+        </section>
+    </main> 
+    <script src="../EjExamen 2/js/detalleLinea.js"></script>
+</body>
+</html>
