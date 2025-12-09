@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>AVILESA - Gestión de líneas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header, footer {
+            background-color: #003366;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        main { padding: 1.5rem; }
+        a.volver {
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            color: #003366;
+        }
+        fieldset {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+        }
+        label {
+            display: block;
+            margin: 0.5rem 0 0.2rem;
+        }
+        input, select {
+            padding: 0.4rem;
+            width: 100%;
+            max-width: 300px;
+        }
+        .acciones {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        button {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 0.4rem;
+            text-align: left;
+        }
+        th { background-color: #f0f0f0; }
+        .mensaje {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Gestión de líneas</h1>
+</header>
+
+<main>
+    <a href="index.html" class="volver">&larr; Volver a la página principal</a>
+
+    <section>
+        <h2>Alta / Baja / Modificación / Consulta de líneas</h2>
+
+        <form id="formLineas">
+            <fieldset>
+                <legend>Datos de la línea</legend>
+
+                <label for="numLinea">Número de línea *</label>
+                <input type="number" id="numLinea" name="numLinea" min="1" step="1" required>
+
+                <label for="origen">Origen *</label>
+                <input type="text" id="origen" name="origen" required>
+
+                <label for="destino">Destino *</label>
+                <input type="text" id="destino" name="destino" required>
+
+                <label for="horaSalida">Hora inicial de salida (HH:MM) *</label>
+                <input type="time" id="horaSalida" name="horaSalida" required>
+
+                <label for="intervaloLinea">Intervalo entre buses (HH:MM) *</label>
+                <input type="text" id="intervaloLinea" name="intervaloLinea" placeholder="HH:MM" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Operación</legend>
+                <label>
+                    <input type="radio" name="operacionLinea" value="alta" checked>
+                    Alta
+                </label>
+                <label>
+                    <input type="radio" name="operacionLinea" value="baja">
+                    Baja
+                </label>
+                <label>
+                    <input type="radio" name="operacionLinea" value="modificar">
+                    Modificar
+                </label>
+                <label>
+                    <input type="radio" name="operacionLinea" value="consultar">
+                    Consultar
+                </label>
+            </fieldset>
+
+            <div class="acciones">
+                <button type="submit" id="btnAceptarLinea">Aceptar</button>
+                <button type="reset" id="btnLimpiarLinea">Limpiar</button>
+            </div>
+        </form>
+
+        <div class="mensaje" id="mensajeLineas"></div>
+    </section>
+
+    <section>
+        <h2>Listado de líneas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nº línea</th>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Hora salida</th>
+                    <th>Intervalo</th>
+                </tr>
+            </thead>
+            <tbody id="tablaLineasBody">
+                <!-- Aquí se rellenará dinámicamente con JavaScript -->
+            </tbody>
+        </table>
+    </section>
+</main>
+<script src="../EjExamen 2/js/lineas.js"></script>
+</body>
+</html>
