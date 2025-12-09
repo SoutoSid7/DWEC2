@@ -27,7 +27,7 @@
             <option id="toma" value="Toma">Toma</option>
         </select><br>
 
-        <label for="cantidad">Cantidad añadida</label>
+        <label for="cantidad">Cantidad</label>
         <input type="number" id="cantidad" name="cantidad" required><br>
     </form>
 
@@ -39,7 +39,7 @@
 
     <div id="zonaCooper" style="display: none;">
         <h2>Tabla</h2>
-        <table  id="tablaCooper">
+        <table  id="tablaCooper" border="1px">
             <thead>
                 <tr>
                     <th>Id Operacion</th>
@@ -47,7 +47,7 @@
                     <th>Apellido Socio</th>
                     <th>Producto añadido</th>
                     <th>Aporte o Toma</th>
-                    <th>Cantidad añadida</th>
+                    <th>Cantidad</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,10 +58,13 @@
 
     <div id="zonaCooperSospechoso" style="display: none;">
         <h2>Tabla Operaciones Sospechosas</h2>
-        <table  id="tablaCooperSospechoso">
+        <table  id="tablaCooperSospechoso" border="1px">
             <thead>
                 <tr>
                     <th>Id Operacion</th>
+                    <th>Nombre Socio</th>
+                    <th>Apellido Socio</th>
+                    <th>Cantidad Tomada</th>
                 </tr>
             </thead>
             <tbody>

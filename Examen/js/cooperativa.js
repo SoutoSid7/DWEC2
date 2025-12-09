@@ -7,16 +7,27 @@ class Operacion {
         this.oper = oper
         this.cantidad = cantidad
     }
+
+    get aporte() {
+        
+    }
+
 }
 
 class OperacionSospechosa {
-    constructor(idOper) {
+    constructor(idOper, nombreS, apellidoS, cantidad) {
         this.idOper = idOper
+        this.nombreS = nombreS
+        this.apellidoS = apellidoS
+        this.cantidad = cantidad
     }
 }
 
 const operaciones = []
 const opercaionesSospechosas = []
+
+let sumaKg = 0
+let restaKg = 0
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btnAlta").addEventListener("click", alta)
@@ -44,6 +55,16 @@ function alta() {
         return
     }
 
+    /*
+    if(oper == "Aporte"){
+        sumaKg += cantidad
+        return
+    }
+
+    if(oper == "Toma" && restaKg == 0){
+        return
+    }*/
+
     const operacion = new Operacion(idOper, nombreS, apellidoS, producto, oper, cantidad)
     operaciones.push(operacion)
 
@@ -64,6 +85,19 @@ function modificar() {
         return
     }
 
+    /*
+    if(oper == "Aporte"){
+        sumaKg += cantidad
+        return
+    }
+    */
+
+    operacion.cantidad += sumaKg
+
+    if(oper == "Toma"){
+        this.cantidad -= restaKg
+    }
+
     const operacion = operaciones.find(o => o.idOper === idOper)
 
     operacion.idOper = idOper
@@ -81,11 +115,15 @@ function modificar() {
 function sospechosa() {
     const idOper = document.getElementById("idOper").value
     const cantidad = document.getElementById("cantidad").value
+    const nombreS = document.getElementById("nombreS").value
+    const apellidoS = document.getElementById("apellidoS").value    
 
-    if(cantidad > 100){
-        const operacionSospechosa = new OperacionSospechosa(idOper)
+    const oper = document.getElementById("oper").value
+    
+    if(oper == "Toma" && cantidad > 100){
+        const operacionSospechosa = new OperacionSospechosa(idOper, nombreS, apellidoS, cantidad)
         opercaionesSospechosas.push(operacionSospechosa)
-        alert("Se añadio a operacioens sospechosas")
+        alert("Se añadio a operaciones sospechosas")
         return
     }
 
@@ -114,7 +152,6 @@ function mostrarTabla() {
             <td>${o.producto}</td>
             <td>${o.oper}</td>
             <td>${o.cantidad}</td>
-
         `
 
         fila.addEventListener("click", () => {
@@ -148,10 +185,17 @@ function mostrarTablaSospe() {
         const fila = document.createElement("tr")
         fila.innerHTML += `
             <td>${o.idOper}</td>
+            <td>${o.nombreS}</td>
+            <td>${o.apellidoS}</td>
+            <td>${o.cantidad}</td>
         `
 
         fila.addEventListener("click", () => {
             document.getElementById("idOper").value = o.idOper
+            document.getElementById("nombreS").value = o.nombreS
+            document.getElementById("apellidoS").value = o.apellidoS
+            document.getElementById("cantidad").value = o.cantidad
+
         })
         tbody.appendChild(fila)
     })
