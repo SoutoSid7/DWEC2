@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla</title>
+</head>
+<body>
+    <input type="file" id="ficheros" name="ficheros[]" multiple />
+    <output id="list"></output>
+    <script>
+        const fichSelEvt = (evt) => {
+            const ficheros = evt.target.files
+            
+            let output = []
+
+            for(let i = 0, f; (f = ficheros[i]); i++){
+                output.push(
+                    `<li>
+                        <strong>${encodeURI(f.name)}</strong> 
+                        (${f.type || "n/a"}) -${f.size} bytes, 
+                        ultima modificacion: ${new Date(
+                            f.lastModified
+                        ).toLocaleString()} 
+                    </li>`
+                )
+            }
+            document.getElementById("list").innerHTML = 
+                "<ul>" + output.join("") + "</ul>"
+        }
+        document
+            .getElementById("ficheros")
+            .addEventListener("change", fichSelEvt, false)
+    </script>
+</body>
+</html>
