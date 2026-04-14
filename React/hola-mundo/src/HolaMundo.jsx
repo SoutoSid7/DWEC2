@@ -4,4 +4,4 @@ const HolaMundo = () => (
         <h2>Nuevo componente basico de React</h2>
     </div>
 )
-export default HolaMundo
+export default HolaMundo;
