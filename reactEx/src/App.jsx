@@ -5,6 +5,9 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import HeaderComponent from './components/HeaderComponent'
 import ButtonComponent from './components/ButtonComponent'
+import Login from './components/Login'
+import MovieList from './components/MovieList'
+import MemeList from './components/MemeList'
 
 function App() {
   // let number = 0;
@@ -26,33 +29,63 @@ function App() {
     contact: "Contact us"
   }
 
-  const addOne = () => {
-    // number++;
-    setNumber(number + 1) 
-    console.log(number);
+  const [user, setUser] = useState({})
+
+  const login = (userInfo) => {
+    console.log(userInfo);
+    setUser(userInfo) 
   }
 
-  const sayHello = () => {
-    console.log("Hello!!");
-  }
+  const condition = true
 
-  const handleChange = (e) => {
-    console.log(e.target.value); // target.value muestra lo que el usuario escribe
-  }
+  {/*
+    const addOne = () => {
+      // number++;
+      setNumber(number + 1) 
+      console.log(number);
+    }
+
+    const handleChange = (e) => {
+      console.log(e.target.value); // target.value muestra lo que el usuario escribe
+    }
+
+    const sayHello = () => {
+      console.log("Hello!!");
+    }
+    */}
 
   return (
-    <>
+    <> 
       <HeaderComponent greetings={greetings} links={links} ></HeaderComponent>
 
       <main className='main-content'>
-        <h2 onClick={sayHello()}>Hola a todos!</h2>  {/* onclick cuado se hace clic */}
+        <MemeList></MemeList>
+        {/* <h2 onClick={sayHello()}>Hola {user.username}</h2>   onclick cuado se hace clic */}
         
-        <h2 onClick={addOne}>Numero: {number}</h2>
+        {user.username && <h2>Hola {user.username}</h2>} {/** Render condicional */}
 
-        <input value={myValue} placeholder={myPlaceHolder} type='text' onChange={handleChange}></input>
-        <br></br>
-        <br></br>
-        <ButtonComponent></ButtonComponent>
+        <Login handleLogin={login}></Login>
+
+        {condition && <h2>La condicion se cumple</h2>}
+        {!condition && <h2>La condicion NO se cumple</h2>}
+
+        {/** Operadores Ternarios */}
+        { condition ? (
+          <h2>La condicion se cumple</h2>
+        ) : (
+          <h2>La condicion no se cumple</h2>
+        )}
+
+        <MovieList></MovieList>
+
+        {/*
+          <h2 onClick={addOne}>Numero: {number}</h2>
+
+          <input value={myValue} placeholder={myPlaceHolder} type='text' onChange={handleChange}></input>
+          <br></br>
+          <br></br>
+          <ButtonComponent></ButtonComponent>
+        */}
       </main>
     </>
   )
